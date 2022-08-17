@@ -1,20 +1,21 @@
 <?php
 
 function binarySearch($needle, $array) {
-  $low = 0;
-  $high = count($array) - 1;
+  $lowerPosition = 0;
+  $higherPosition = count($array) - 1;
 
-  while ($low <= $high) {
-    $middle = ceil(($low + $high) / 2);
+  while ($lowerPosition <= $higherPosition) {
+    $middle = ceil(($lowerPosition + $higherPosition) / 2);
+    $guess = $array[$middle];
 
-    if ($array[$middle] == $needle) {
+    if ($guess == $needle) {
       return $middle;
     }
 
-    if ($array[$middle] > $needle) {
-      $high = $middle - 1;
+    if ($guess > $needle) {
+      $higherPosition = $middle - 1;
     } else {
-      $low = $middle + 1;
+      $lowerPosition = $middle + 1;
     }
   }
 
